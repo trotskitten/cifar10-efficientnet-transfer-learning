@@ -221,3 +221,4 @@ The reported metrics in this README come from the saved experiment outputs and p
 ## Contributors
 
 - [juanalvaroromero-cell](https://github.com/juanalvaroromero-cell)
+- [alananjungwei](https://github.com/alananjungwei)
