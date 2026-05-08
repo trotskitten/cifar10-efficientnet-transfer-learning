@@ -142,7 +142,7 @@ Data augmentation and deeper convolutional layers produced the strongest gains, 
 
 Transfer learning with EfficientNetV2B0 substantially outperformed the custom CNN trained from scratch. The final fine-tuned model, `EfficientNetV2B0_TOTAL_FT_V2`, reached a test accuracy of approximately `0.972` with a test loss of `0.095`, showing strong generalization across the CIFAR-10 classes.
 
-![EfficientNetV2B0 test accuracy and test loss evolution](images/accuracy_loss_evolution.png)
+![EfficientNetV2B0 test accuracy and test loss evolution](CNN_project/images/accuracy_loss_evolution.png)
 
 | Model stage | Test accuracy | Test loss |
 | --- | ---: | ---: |
@@ -166,7 +166,7 @@ The transfer learning results improved as more of the pretrained network was mad
 
 The final training curves show a validation accuracy of `0.9753` and a validation loss of `0.0849`. Training and validation performance remain close, which indicates that the final model generalizes well instead of simply overfitting the training set.
 
-![EfficientNetV2B0 final model accuracy and loss curves](images/accuracy_loss_graph.png)
+![EfficientNetV2B0 final model accuracy and loss curves](CNN_project/images/accuracy_loss_graph.png)
 
 One likely reason fine-tuning helped is the difference between ImageNet and CIFAR-10. CIFAR-10 images are small, low-resolution `32x32` images, while EfficientNetV2B0 was originally trained on larger ImageNet images. The lower layers still provide useful generic visual features such as edges, textures, and contours, but deeper layers benefit from retraining so they can adapt to the simpler visual patterns in CIFAR-10.
 
@@ -174,7 +174,7 @@ Freezing BatchNormalization layers likely helped stabilize fine-tuning by preser
 
 The classification report confirms consistent performance across nearly all classes, with overall accuracy, macro average, and weighted average around `0.97`.
 
-![EfficientNetV2B0 final classification report](images/evaluation_report.png)
+![EfficientNetV2B0 final classification report](CNN_project/images/evaluation_report.png)
 
 | Class | Precision | Recall | F1-score |
 | --- | ---: | ---: | ---: |
@@ -191,7 +191,7 @@ The classification report confirms consistent performance across nearly all clas
 
 The confusion matrix shows that most predictions are concentrated on the diagonal. The largest remaining errors occur between visually similar classes, especially cats and dogs, and between trucks and automobiles. This is expected given the limited image resolution and overlapping visual characteristics of these categories.
 
-![EfficientNetV2B0 final confusion matrix](images/confusion_matrix.png)
+![EfficientNetV2B0 final confusion matrix](CNN_project/images/confusion_matrix.png)
 
 Overall, EfficientNetV2B0 transfer learning increased test accuracy from `0.776` with the best custom CNN to `0.972` with the final fine-tuned model.
 
